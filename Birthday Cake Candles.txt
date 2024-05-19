@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int birthdayCakeCandles(const std::vector<int>& candles) {
+    
+    if (candles.empty()) {
+        return 0;
+    }
+    
+    
+    int max_height = *std::max_element(candles.begin(), candles.end());
+    
+   
+    int tallest_count = std::count(candles.begin(), candles.end(), max_height);
+    
+    return tallest_count;
+}
+
+int main() {
+    int n;
+    
+    std::cin >> n;
+
+    std::vector<int> candles(n);
+    
+    for (int i = 0; i < n; ++i) {
+        std::cin >> candles[i];
+    }
+
+    std::cout<< birthdayCakeCandles(candles) << std::endl;
+
+    return 0;
+}
